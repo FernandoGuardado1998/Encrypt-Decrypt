@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 
 import os
+import os.path
+from os import path
 from cryptography.fernet import Fernet
 
 #Generates a brand new key
@@ -39,10 +41,16 @@ def main():
     "2. Decrpyt\n")
 
     if options == 1:
-        GenerateNewKey()
-        key = LoadKey()
-        Encrypt(key,'wordlist.txt')
-        print("New key has been generated and word list has been encrypted")
+
+        #Checks to see if the key exists
+        if path.exists("YourKey.key"):
+            print('word list has already been encrypted')
+        else:
+            GenerateNewKey()
+            key = LoadKey()
+            Encrypt(key,'wordlist.txt')
+            print("New key has been generated and word list has been encrypted")
+
     elif options == 2:
         key = LoadKey()
         Decrypt(key,'wordlist.txt')
