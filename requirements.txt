@@ -2,4 +2,4 @@
 # https://github.com/damnever/pigar
 
 # crypt.py: 4
-cryptography == 2.6.1
+cryptography == 3.2
